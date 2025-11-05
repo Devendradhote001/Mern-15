@@ -6,7 +6,13 @@ const Register = ({ setToggle }) => {
       <h1>Register form</h1>
 
       <form action="">
-        <input type="text" placeholder="FullName" />
+        <input
+          onChange={(e) => {
+            console.log(e.target.value);
+          }}
+          type="text"
+          placeholder="FullName"
+        />
         <input type="text" placeholder="username" />
 
         <input type="text" placeholder="password" />

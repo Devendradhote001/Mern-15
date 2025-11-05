@@ -12,7 +12,8 @@ const Login = ({ setToggle }) => {
       </form>
 
       <p>
-        Dont have an account? <span onClick={() => setToggle(prev => !prev)}>Register here</span>
+        Dont have an account?{" "}
+        <span onClick={() => setToggle((prev) => !prev)}>Register here</span>
       </p>
     </div>
   );
