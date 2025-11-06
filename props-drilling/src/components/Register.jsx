@@ -1,6 +1,7 @@
 import React from "react";
 
-const Register = ({ setToggle }) => {
+const Register = ( prop ) => {
+  console.log(prop);
   return (
     <div>
       <h1>Register form</h1>

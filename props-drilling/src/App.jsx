@@ -8,31 +8,51 @@ const App = () => {
     dob: "",
   });
 
-  console.log(formData);
+  const handleChange = (e) => {
+    let { name, value } = e.target;
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    setFormData({
+      name: "",
+      email: "",
+      mobile: "",
+      dob: "",
+    });
+  };
 
   return (
-    <div>
+    <div className="bg-gray-400">
       <h1>Hello</h1>
-      <form action="">
+      <form onSubmit={handleSubmit} action="">
         <input
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          value={formData.name}
+          name="name"
+          onChange={handleChange}
           type="text"
           placeholder="name"
         />
         <input
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          value={formData.email}
+          name="email"
+          onChange={handleChange}
           type="text"
           placeholder="Email"
         />
         <input
-          onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+          value={formData.mobile}
+          name="mobile"
+          onChange={handleChange}
           type="text"
           placeholder="Mobile"
         />
         <input
-          onChange={(e) => setFormData({ ...formData, dob: e.target.value })}
+          value={formData.dob}
+          name="dob"
+          onChange={handleChange}
           type="text"
           placeholder="DOB"
         />
