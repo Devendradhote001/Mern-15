@@ -7,7 +7,6 @@ const Register = ({ setToggle, setUsersData, usersData }) => {
     password: "",
   });
 
-
   const handleChange = (e) => {
     let { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -15,8 +14,9 @@ const Register = ({ setToggle, setUsersData, usersData }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let updatedArr = [...usersData, formData];
     setUsersData((prev) => [...prev, formData]);
-    localStorage.setItem("user", JSON.stringify(usersData));
+    localStorage.setItem("user", JSON.stringify(updatedArr));
     alert("data saved ");
 
     setFormData({
