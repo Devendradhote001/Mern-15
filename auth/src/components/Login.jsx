@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const Login = ({ setToggle, usersData }) => {
+  const [loggedInuser, setLoggedInuser] = useState(null);
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -27,6 +28,7 @@ const Login = ({ setToggle, usersData }) => {
     );
 
     if (user) {
+      setLoggedInuser(user);
       alert("logged in ");
     } else {
       alert("invalid credentials");
@@ -72,6 +74,8 @@ const Login = ({ setToggle, usersData }) => {
           </span>
         </p>
       </form>
+
+      <h1>{loggedInuser?.username}</h1>
     </div>
   );
 };

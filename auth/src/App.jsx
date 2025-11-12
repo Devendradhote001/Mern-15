@@ -21,9 +21,13 @@ const App = () => {
         />
       )}
       <div>
-        {usersData.map((elem, i) => (
-          <h1 key={} className="text-2xl">{elem.fullname}</h1>
-        ))}
+        {!toggle
+          ? usersData.map((elem, i) => (
+              <h1 key={i} className="text-2xl">
+                {elem.fullname}
+              </h1>
+            ))
+          : null}
       </div>
     </div>
   );
