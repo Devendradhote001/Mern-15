@@ -1,8 +1,14 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-export let MyStore = createContext();
+export let YadavJii = createContext();
 
-export const MyContextProvider = ({ children }) => {
-  let data = "global hu me";
-  return <MyStore.Provider value={data}>{children}</MyStore.Provider>;
+export const YadavJiKiDukaan = ({ children }) => {
+  const [kirana, setKirana] = useState("maida");
+  const [count, setCount] = useState(0);
+
+  return (
+    <YadavJii.Provider value={{ kirana, count, setCount }}>
+      {children}
+    </YadavJii.Provider>
+  );
 };

@@ -2,18 +2,15 @@ import React from "react";
 import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { MyStore } from "./context/MyContext";
+import { YadavJii, YadavJiKiDukaan } from "./context/MyContext";
+import About from "./About";
 
 const App = () => {
   const [count, setCount] = useState(0);
   const [enterAmitabh, setEnterAmitabh] = useState(false);
 
-  let cd = useContext(MyStore);
-  console.log(cd);
-
-  useEffect(() => {
-    console.log("asj,gasdjfgb");
-  }, [enterAmitabh]);
+  let { kirana } = useContext(YadavJii);
+  console.log(kirana);
 
   return (
     <div>
@@ -22,9 +19,8 @@ const App = () => {
       <button onClick={() => setEnterAmitabh(!enterAmitabh)}>
         Amitabh ko bhejo
       </button>
-      <div>
-        <h1></h1>
-      </div>
+      <About />
+      <div></div>
     </div>
   );
 };
