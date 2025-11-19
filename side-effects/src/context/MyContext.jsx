@@ -7,8 +7,7 @@ export const YadavJiKiDukaan = ({ children }) => {
   const [count, setCount] = useState(0);
 
   return (
-    <YadavJii.Provider value={{ kirana, count, setCount }}>
-      {children}
-    </YadavJii.Provider>
+    <YadavJii.Provider value={{ kirana, count }}>{children}</YadavJii.Provider>
   );
 };
+ 
