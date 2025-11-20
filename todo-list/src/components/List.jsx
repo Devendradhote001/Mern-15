@@ -2,20 +2,27 @@ import React, { useContext } from "react";
 import { MyTask } from "../context/MyContext";
 
 const List = ({ elem }) => {
-  let { allTasks, setAllTasks } = useContext(MyTask);
+  let { allTasks, setAllTasks, setEditedId } = useContext(MyTask);
 
   const handleDelete = () => {
+    console.log("hello del");
     let filteredArr = allTasks.filter((val) => val.id !== elem.id);
     localStorage.setItem("tasks", JSON.stringify(filteredArr));
     setAllTasks(filteredArr);
-    alert("task deleted");
+  };
+
+  const handleUpdate = () => {
+    setEditedId(elem.id);
   };
 
   return (
     <div className="w-full flex justify-between items-center py-4 px-8 bg-gray-200 rounded">
       <p>{elem.task}</p>
       <div className="flex gap-5">
-        <button className="py-2 px-4 rounded cursor-pointer bg-green-600 text-white">
+        <button
+          onClick={handleUpdate}
+          className="py-2 px-4 rounded cursor-pointer bg-green-600 text-white"
+        >
           Update
         </button>
         <button
@@ -30,8 +37,6 @@ const List = ({ elem }) => {
 };
 
 export default List;
-
-
 
 /*
 1. make three componenets-> input with button, taks-container, list of tasks.

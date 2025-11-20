@@ -8,7 +8,7 @@ const TaskContainer = () => {
   return (
     <div className="w-full h-100 overflow-y-auto border border-dashed p-5 flex flex-col gap-4 items-center">
       {/* <h1 className="text-2xl text-red-700">No Tasks added</h1> */}
-      {allTasks.map((elem) => {
+      {allTasks?.map((elem) => {
         return <List key={elem.id} elem={elem} />;
       })}
     </div>
