@@ -3,7 +3,7 @@ import { MyTask } from "../context/MyContext";
 import { nanoid } from "nanoid";
 
 const Input = () => {
-  let { setAllTasks, allTasks, editedId } = useContext(MyTask);
+  let { setAllTasks, allTasks, editedId, setEditedId } = useContext(MyTask);
 
   const [taskInput, setTaskInput] = useState("");
   console.log(taskInput);
@@ -26,12 +26,11 @@ const Input = () => {
       let updatedTask = allTasks.find((elem) => elem.id === editedId);
       updatedTask.task = taskInput;
 
-      let updateTasksArr = allTasks.filter((val) => val.id === editedId);
-
-      let upArr = [...allTasks, updatedTask];
+      let upArr = [...allTasks];
       setAllTasks(upArr);
       localStorage.setItem("tasks", JSON.stringify(upArr));
-      setTaskInput = "";
+      setTaskInput("");
+      setEditedId(null);
       return;
     }
 
