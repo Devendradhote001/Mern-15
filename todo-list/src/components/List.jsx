@@ -11,16 +11,14 @@ const List = ({ elem }) => {
     setAllTasks(filteredArr);
   };
 
-  const handleUpdate = () => {
-    setEditedId(elem.id);
-  };
-
   return (
     <div className="w-full flex justify-between items-center py-4 px-8 bg-gray-200 rounded">
       <p>{elem.task}</p>
       <div className="flex gap-5">
         <button
-          onClick={handleUpdate}
+          onClick={() => {
+            setEditedId(elem.id);
+          }}
           className="py-2 px-4 rounded cursor-pointer bg-green-600 text-white"
         >
           Update

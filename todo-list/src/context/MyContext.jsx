@@ -8,6 +8,7 @@ export const MyTaskContextProvider = ({ children }) => {
   });
 
   const [editedId, setEditedId] = useState(null);
+
   return (
     <MyTask.Provider value={{ allTasks, setAllTasks, editedId, setEditedId }}>
       {children}
