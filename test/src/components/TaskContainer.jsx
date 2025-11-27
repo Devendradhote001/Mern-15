@@ -14,8 +14,8 @@ const TaskContainer = () => {
     >
       <h1>Tasks</h1>
 
-      {contextInputValue.map((val, index) => {
-        return <List key={index} val={val} id={index} />;
+      {contextInputValue.map((val) => {
+        return <List key={val.id} val={val} />;
       })}
     </div>
   );

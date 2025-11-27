@@ -1,19 +1,20 @@
 import React, { useContext } from "react";
 import { MyStore } from "../context/MyContext";
 
-const List = ({ val, id }) => {
-  let { contextInputValue, setContextInputValue } = useContext(MyStore);
+const List = ({ val }) => {
+  let { contextInputValue, setContextInputValue, setEditedId } =
+    useContext(MyStore);
 
-  const handleDel = () => {
-    let filteredArr = contextInputValue.filter((val, index) => index != id);
-    setContextInputValue(filteredArr);
+  const handleDelete = () => {
+    let filteredarr = contextInputValue.filter((elem) => elem.id !== val.id);
+    setContextInputValue(filteredarr);
   };
 
   return (
     <div>
-      <p>{val}</p>
-      <button>Update</button>
-      <button onClick={handleDel}>Delete</button>
+      <p>{val.task}</p>
+      <button onClick={() => setEditedId(val.id)}>Update</button>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 };
