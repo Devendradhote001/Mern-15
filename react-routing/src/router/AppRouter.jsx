@@ -4,11 +4,12 @@ import About from "../components/About";
 import Contact from "../components/Contact";
 import Home from "../components/Home";
 import Products from "../components/Products";
+import LandingPage from "../components/LandingPage";
 
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<LandingPage />} />
 
       <Route path="/about" element={<About />}>
         <Route path="akn" element={<Products />} />
