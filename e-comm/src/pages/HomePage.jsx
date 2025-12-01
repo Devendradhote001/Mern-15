@@ -2,31 +2,31 @@ import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import ProductCard from "../components/ProductCard";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
   console.log(products);
-  const fetchProducts = async () => {
+
+  const fetchUsers = async () => {
     try {
       let res = await axios.get("https://fakestoreapi.com/products");
       if (res) {
-        console.log(res);
         setProducts(res.data);
       }
     } catch (error) {
-      console.log("error in api call", error);
+      console.log("error in api", error);
     }
   };
 
   useEffect(() => {
-    fetchProducts();
+    fetchUsers();
   }, []);
 
   return (
-    <div>
-      <h2>Products</h2>
+    <div className=" h-screen p-4 flex gap-5 flex-wrap">
       {products.map((elem) => {
-        return <h1 key={elem.id}>{elem.title}</h1>;
+        return <ProductCard key={elem.id} elem={elem} />;
       })}
     </div>
   );
