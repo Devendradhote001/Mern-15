@@ -26,18 +26,19 @@ const AppRouter = () => {
         },
         {
           path: "users",
+          element: <Users />,
           loader: async () => {
             try {
               let res = await axios.get("https://fakestoreapi.com/users");
               if (res) {
+                console.log("me api hu...");
                 return res.data;
               }
             } catch (error) {
               console.log("error in users api", error);
             }
           },
-          hydrateFallbackElement: <App />,
-          element: <Users />,
+          hydrateFallbackElement: <h1>Loading...</h1>,
         },
         {
           path: "products",

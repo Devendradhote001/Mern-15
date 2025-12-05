@@ -4,8 +4,10 @@ import { useLoaderData } from "react-router";
 
 const Users = () => {
   console.log("rendering... users...");
-  let useraData = useLoaderData();
-  console.log("data of users->", useraData);
+
+  let fetchUsers = useLoaderData();
+
+  console.log("users data->", fetchUsers);
 
   return (
     <div>
