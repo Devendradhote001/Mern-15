@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { UserState } from "../Context/MyContext";
 
 const Register = ({ setToggle }) => {
+  let { registerUsers, setRegisterUsers } = useContext(UserState);
+
   let {
     register,
     handleSubmit,
@@ -10,7 +13,10 @@ const Register = ({ setToggle }) => {
   } = useForm();
 
   const formSubmit = (data) => {
-    console.log("register data->", data);
+    let arr = [...registerUsers, data];
+    setRegisterUsers(arr);
+    localStorage.setItem("reg user", JSON.stringify(arr));
+    alert("user registered successfully");
   };
 
   return (

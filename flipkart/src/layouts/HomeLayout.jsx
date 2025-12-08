@@ -1,9 +1,24 @@
-import React from "react";
-import { NavLink, Outlet, useLocation } from "react-router";
+import React, { useContext } from "react";
+import {
+  Navigate,
+  NavLink,
+  Outlet,
+  useLocation,
+  useNavigate,
+} from "react-router";
+import { UserState } from "../Context/MyContext";
 
 const HomeLayout = () => {
+  let navigate = useNavigate();
+  let { logoutUser } = useContext(UserState);
   let { pathname } = useLocation();
   console.log(pathname);
+
+  const handleLogout = () => {
+    logoutUser();
+    navigate('/')
+  };
+
   return (
     <div className="h-screen w-full flex">
       <aside className="w-[16%] border-r p-4 border-gray-400 flex flex-col">
@@ -50,10 +65,10 @@ const HomeLayout = () => {
             Cart
           </NavLink>
           <NavLink
+            onClick={handleLogout}
             className={({ isActive }) =>
               isActive ? "text-black font-semibold" : "text-gray-400"
             }
-            to="/home/cart"
           >
             Logout
           </NavLink>
