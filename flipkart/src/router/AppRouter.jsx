@@ -8,9 +8,9 @@ import Users from "../pages/Users";
 import Product from "../pages/Product";
 import Cart from "../pages/Cart";
 import axios from "axios";
-import App from "../App";
 import ProtectedRoute from "../components/ProtectedRoute";
 import PublicRoute from "../components/PublicRoute";
+import ProductDetail from "../pages/ProductDetail";
 
 const AppRouter = () => {
   let router = createBrowserRouter([
@@ -59,6 +59,10 @@ const AppRouter = () => {
             {
               path: "cart",
               element: <Cart />,
+            },
+            {
+              path: "products/details/:id",
+              element: <ProductDetail />,
             },
           ],
         },
