@@ -12,7 +12,6 @@ const HomeLayout = () => {
   let navigate = useNavigate();
   let { logoutUser } = useContext(UserState);
   let { pathname } = useLocation();
-  console.log(pathname);
 
   const handleLogout = () => {
     logoutUser();

@@ -10,8 +10,6 @@ export const ContextProvider = ({ children }) => {
     () => JSON.parse(localStorage.getItem("log user")) || null
   );
 
-  console.log("reg user->", registerUsers);
-  console.log("log user", logInUser);
 
   const logoutUser = () => {
     localStorage.removeItem("log user");

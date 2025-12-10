@@ -4,7 +4,6 @@ import ProductCard from "../components/ProductCard";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
-  console.log(products);
 
   const fetchProducts = async () => {
     try {
