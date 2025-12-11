@@ -7,8 +7,6 @@ const Home = () => {
   }, 1000);
 
   useEffect(() => {
-
-    vsdvsdvfds
     return () => {
       clearInterval(interval);
     };

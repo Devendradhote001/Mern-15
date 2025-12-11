@@ -4,6 +4,16 @@ import About from "./components/About";
 const App = () => {
   const [count, setCount] = useState(0);
 
+  const calc = useMemo(() => {
+    console.log("heavy calc running...");
+    let a = count;
+    let res;
+    for (let i = 1; i < 1000000000; i++) {
+      res = a * i;
+    }
+    return res;
+  }, []);
+
   const greet = useCallback(() => {
     console.log("good afternoon");
   }, []);
@@ -11,6 +21,16 @@ const App = () => {
   // const greet = () => {
   //   console.log("good afternook");
   // };
+
+  // memoization
+
+  // 1.React.memo
+  // 2. useCallback
+  // 3. usememo
+
+  // code splitting....
+
+  // Suspense, fallback, lazy;
 
   console.log("app rendering...");
 
