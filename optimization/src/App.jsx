@@ -4,15 +4,16 @@ import About from "./components/About";
 const App = () => {
   const [count, setCount] = useState(0);
 
-  const calc = useMemo(() => {
-    console.log("heavy calc running...");
-    let a = count;
-    let res;
+  const maths = () => {
+    console.log("calculation fun runing....");
+    let a = 1;
     for (let i = 1; i < 1000000000; i++) {
-      res = a * i;
+      a = a + i;
     }
-    return res;
-  }, []);
+    return a;
+  };
+
+  let getVal = useMemo(maths, []);
 
   const greet = useCallback(() => {
     console.log("good afternoon");
