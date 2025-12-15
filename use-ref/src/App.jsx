@@ -10,10 +10,9 @@ const App = () => {
 
   const getUsers = async () => {
     try {
-      let res = fetchUsers();
+      let res = await fetchUsers();
       if (res) {
         console.log(res);
-        setUsers(res);
       }
     } catch (error) {
       console.log("error in fetch", error);
