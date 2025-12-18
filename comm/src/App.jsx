@@ -7,10 +7,12 @@ const App = () => {
   let { pathname } = useLocation();
 
   return (
-    <div>
+    <div className="h-screen">
       {pathname === "/" ? null : <Navbar />}
 
-      <AppRouter />
+      <div className="p-4">
+        <AppRouter />
+      </div>
     </div>
   );
 };

@@ -26,7 +26,14 @@ const AppRouter = () => {
             </ProtectedRoute>
           }
         />
-        <Route path="/users" element={<Users />} />
+        <Route
+          path="/users"
+          element={
+            <ProtectedRoute>
+              <Users />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );
