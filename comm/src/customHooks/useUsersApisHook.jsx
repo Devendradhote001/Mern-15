@@ -5,6 +5,5 @@ export const getUsersApisHook = () => {
   return useQuery({
     queryKey: ["users"],
     queryFn: fetchUsers,
-    staleTime: 5000,
   });
 };

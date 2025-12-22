@@ -3,7 +3,7 @@ import { axiosInstance } from "../config/axiosInstance";
 export const fetchProducts = async () => {
   console.log("rendering for products..");
   try {
-    let res = await axiosInstance.get("/products");
+    let res = await axiosInstance.get("/product");
     if (res) {
       return res.data;
     }

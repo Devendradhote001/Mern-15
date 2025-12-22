@@ -5,6 +5,5 @@ export const getProductApiHook = () => {
   return useQuery({
     queryKey: ["products"],
     queryFn: fetchProducts,
-    staleTime: Infinity,
   });
 };
