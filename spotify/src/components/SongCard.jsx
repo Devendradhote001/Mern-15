@@ -5,18 +5,8 @@ import { addSong, playAndPause } from "../features/songSlice";
 
 const SongCard = ({ elem }) => {
   const dispatch = useDispatch();
-  let audioRef = useRef();
 
   let { currentSong, isPlaying } = useSelector((state) => state.song);
-
-  useEffect(() => {
-    if (currentSong && isPlaying) {
-      audioRef.current.play();
-    } else {
-      audioRef.current.pause();
-      dispatch(playAndPause());
-    }
-  }, [currentSong]);
 
   return (
     <div className="h-[14%] flex px-10 items-center justify-between rounded-xl w-full border border-gray-400">
@@ -33,13 +23,31 @@ const SongCard = ({ elem }) => {
           <p className="text-gray-400">{elem.artist}</p>
         </div>
       </div>
-      <div
-        onClick={() => dispatch(addSong(elem))}
-        className="h-15 w-15 rounded-full flex justify-center cursor-pointer items-center bg-black text-white"
-      >
-        {currentSong?.id === elem.id ? <Pause /> : <Play />}
-      </div>
-      <audio ref={audioRef} src={currentSong?.src}></audio>
+
+      {currentSong?.id === elem.id ? (
+        isPlaying ? (
+          <div
+            onClick={() => dispatch(playAndPause())}
+            className="h-15 w-15 rounded-full flex justify-center cursor-pointer items-center bg-black text-white"
+          >
+            <Pause />
+          </div>
+        ) : (
+          <div
+            onClick={() => dispatch(playAndPause())}
+            className="h-15 w-15 rounded-full flex justify-center cursor-pointer items-center bg-black text-white"
+          >
+            <Play />
+          </div>
+        )
+      ) : (
+        <div
+          onClick={() => dispatch(addSong(elem))}
+          className="h-15 w-15 rounded-full flex justify-center cursor-pointer items-center bg-black text-white"
+        >
+          <Play />
+        </div>
+      )}
     </div>
   );
 };
